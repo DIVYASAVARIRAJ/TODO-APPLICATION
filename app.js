@@ -224,7 +224,7 @@ app.get("/todos/", async (request, response) => {
                     FROM
                     todo
                     WHERE
-                    todo LIKE '${search_q}';`;
+                    todo LIKE '%${search_q}%';`;
       data = await db.all(getTodosQuery);
       response.send(data.map((object) => convertDueDate(object)));
   }
